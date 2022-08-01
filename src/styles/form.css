@@ -1,0 +1,30 @@
+
+/* form */
+
+.inputfield {
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: minmax(auto, 2fr ) 10fr;
+    grid-gap: 0.5em;
+    align-items: center;
+    /* flex-direction: row;
+    margin-bottom: 1rem; */
+  }
+.textareafield {
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: minmax(auto, 2fr ) 10fr;
+    grid-gap: 0.5em;
+    align-items: top;
+    /* flex-direction: row;
+    margin-bottom: 1rem; */
+  }
+  input, textarea, select {
+    padding: 8px 12px;
+    border-radius: 8px;
+		border-width: 2px;
+		border-style: solid;
+  }
+	textarea {
+		resize: vertical;
+	}

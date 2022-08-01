@@ -1,6 +1,8 @@
 <script>
   import Head from "$lib/components/Head.svelte";
   import InputField from "$lib/components/Form/InputField.svelte";
+  import TextareaField from "$lib/components/Form/TextareaField.svelte";
+  import Button from "$lib/components/Button.svelte";
   let firstname = ""
   let lastname = ""
   let phone = ""
@@ -8,11 +10,25 @@
   let way = ""
   let zip = ""
   let cityname = ""
-  // let firstname = ""
-  // let firstname = ""
-  // let firstname = ""
-  // let firstname = ""
-</script>
+  let message = ""
+  let user
+  let data = []
+  function submitForm () {
+    const newUser = {
+      firstname: firstname,
+      lastname: lastname,
+      phone: phone,
+      email: email,
+      way: way,
+      zip: zip,
+      cityname: cityname,
+      message: message
+    }
+    data = [...data, newUser]
+    console.log(data)
+    return data
+  }
+  </script>
 <Head title="Contactez-moi !" />
 <div>
   <p>
@@ -26,13 +42,13 @@
     <br>
     Vous recevrez un code client pour vous connecter sur le site de commande en ligne !
     <!-- <br>
-    06.82.21.91.24
-    <br>
-02.40.49.69.33 -->
-  </p>
-</div>
-<section>
-  <form action="">
+      06.82.21.91.24
+      <br>
+      02.40.49.69.33 -->
+    </p>
+  </div>
+  <section>
+    <form action="" on:submit|preventDefault={submitForm} >
     <fieldset>
       <legend>Identité</legend>
       <InputField bind:value={firstname} label="Prénom" name="firstname" />
@@ -40,52 +56,32 @@
       <InputField bind:value={phone} label="Téléphone" name="phone" entryType="tel" />
       <InputField bind:value={email} label="Adresse courriel" name="email" entryType="email" />
       
-      <!-- <div>
-        <label for="">Prénom <sup>*</sup></label>
-        <input type="text">
-      </div>
-      <div>
-        <label for="">Nom <sup>*</sup></label>
-        <input type="text">
-      </div>
-    -->
-    <!-- <div>
-      <label for="">Téléphone</label>
-      <input type="text">
-    </div>
-    <div>
-      <label for="">Adresse courriel <sup>*</sup></label>
-      <input type="text">
-    </div> -->
-  </fieldset>
-  <fieldset>
-    <legend>Coordonnées géographiques</legend>
+    </fieldset>
+    <fieldset>
+      <legend>Coordonnées géographiques</legend>
       <InputField bind:value={way} label="Rue"  name="way" />
       <InputField bind:value={zip} label="Code Postal" name="zip" />
       <InputField bind:value={cityname} label="Ville"  name="cityname" />
-
-      <!-- <div>
-        <label for="">Rue</label>
-        <input type="text">
-      </div>
-      <div>
-        <label for="">Code postal</label>
-        <input type="text">
-      </div>
-      <div>
-        <label for="">Ville</label>
-        <input type="text">
-      </div> -->
-      </fieldset>
-      <fieldset>
-        <legend>Commentaire</legend>
-      <div>
-        <label for="">Description <sup>*</sup></label>
-        <textarea type="text" />
-      </div>
-
+      
     </fieldset>
-
+    <fieldset>
+      <legend>Commentaire</legend>
+      <TextareaField label="Message" name="message" bind:value={message} />
+      
+      
+    </fieldset>
+    
+    <div class="flex">
+      <Button submit >valider</Button>
+      <Button reset >vider</Button>
+      
+    </div>
     
   </form>
+  {#if data.length}
+  <pre>
+    {JSON.stringify(data, null, 2)}
+  </pre>
+  <!-- {message} -->
+  {/if} 
 </section>

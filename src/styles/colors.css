@@ -1,0 +1,30 @@
+/* Colors */
+
+.green {
+	color: green;
+}
+.gold {
+	color: gold;
+}
+.red {
+	color: red;
+}
+.blue {
+	color: blue;
+}
+.bg-green {
+	background-color: green;
+	color: whitesmoke;
+}
+.bg-gold {
+  background-color: gold;
+}
+.bg-red {
+  background-color: red;
+  color: whitesmoke;
+}
+.bg-blue {
+  background-color: blue;
+	color: whitesmoke;
+}
+

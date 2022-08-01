@@ -3,32 +3,31 @@
   export let name = ""
   export let label = ""
   
-  
   // export let placeholder = ""
   export let entryType = "text"
   export let multiple = false
-const  types = [
-  "number",
-  "tel",
-  "email",
-  // "text",
-  "password",
-  "date",
-  "datetime-local",
-  "month",
-  "time",
-  "week",
-  "url",
-  "search",
-  "color",
-  "file",
-  "range",
-  // "checkbox",
-  // "radio",
-  // "submit",
-
-]
-</script>
+  const  types = [
+    "number",
+    "tel",
+    "email",
+    // "text",
+    "password",
+    "date",
+    "datetime-local",
+    "month",
+    "time",
+    "week",
+    "url",
+    "search",
+    "color",
+    "file",
+    "range",
+    // "checkbox",
+    // "radio",
+    // "submit",
+    
+  ]
+  </script>
 
 <div class="inputfield">
   <label for={name}>{label}</label>
