@@ -4,15 +4,17 @@
   import Form from "$lib/components/Form/Form.svelte";
   import InputField from "$lib/components/Form/InputField.svelte";
   import TextareaField from "$lib/components/Form/TextareaField.svelte";
+  import Select from "$lib/components/Form/Select.svelte";
   import Button from "$lib/components/Button.svelte";
   import EmojiPicker from "svelte-emoji-picker"
-  let civil = ""
+  let title = ""
   let firstname = ""
   let lastname = ""
   let phone = ""
   let email = ""
   let message = ""
   let data = []
+  const loginUrl = "https://accounts.google.com/Login?continue=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSe25B5v88PXWpsiGluOIJHCo6GXW5pHxl9Hp_ZLEnoxrLeW5g%2Fviewform%3Ffbzx%3D-2931820339718156179"
   function handleKey (e) {
     // console.log("e1",e1.key)
     // console.log("e2",e2.key)
@@ -22,7 +24,7 @@
   }
   function submitForm () {
     const newUser = {
-      civil: civil,
+      title: title,
       firstname: firstname,
       lastname: lastname,
       phone: phone,
@@ -31,7 +33,7 @@
     }
     data = [...data, newUser]
     console.log(data)
-    civil = ""
+    title = ""
     firstname = ""
     lastname = ""
     phone = ""
@@ -39,6 +41,11 @@
     message = ""
     return data
   }
+  const civilReg = [
+    "Monsieur",
+    "Madame",
+    "Mademoiselle"
+  ]
 </script>
 
 <Head title="Livre d'or" />
@@ -50,23 +57,14 @@
     <br> -->
     Merci de nous faire parvenir vos témoignages / anecdotes !
     <br>
-    Connectez-vous à Google pour enregistrer votre progression. <a href="#" >En savoir plus</a>
-    <br>
+    Connectez-vous à <a href={loginUrl} target="_blank" >Google</a> pour enregistrer votre progression. (<a href="https://myaccount.google.com/?hl=fr&nlr=1" target="_blank" >en savoir plus</a>)
+    <!-- <br> -->
   </p>
 </section>
 <section>
   <Form on:submit={submitForm} >
       <Fields legend="Identité">
-         <div class="inputfield">
-        <label for="civil">Etat civil</label>
-        <select id="civil" bind:value={civil}>
-          <option value="">--choisissez--</option>
-          <option value="Monsieur">Monsieur</option>
-          <option value="Madame">Madame</option>
-          <option value="Mademoiselle">Mademoiselle</option>
-
-        </select>
-      </div>
+        <Select name="civil" label="Civilité" bind:value={title} options={civilReg} />
         <InputField bind:value={firstname} label="Prénom" name="firstname" />
         <InputField bind:value={lastname} label="Nom" name="lastname" />
         <InputField bind:value={phone} label="Téléphone" name="phone" entryType="tel" />
