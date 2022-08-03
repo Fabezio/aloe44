@@ -6,7 +6,7 @@
 <nav>
 	<div class="brand">
 		<a href="/">
-			<img src="img/_common/logo_336_102124790.jpg" alt="Svelte">
+			<img src="img/logo_336_102124790.jpg" alt="Svelte">
 			<span>Forme, bien-être et beauté</span>
 		</a>
 	</div>
@@ -27,7 +27,7 @@
 		grid-template-areas: 
 			"brand"
 			"links";
-		;
+		
 		grid-template-rows: 2em, 2em;
 		place-content: center center;
 		place-items: center center;
@@ -111,8 +111,8 @@
 			justify-self: end;
 			/* display: flex; */
 			flex-direction: row;
-			/* justify-content: flex-end;
-			flex: 1 0 100%; */
+			justify-content: flex-end;
+			flex: 1 0 100%;
 
 		}
 		/* .links */

@@ -20,7 +20,7 @@
 <Head title="Forme, bien-être et beauté" />
 <section>
 	<figure>
-		<img src="img/home/big_47867890_0_600-114.JPG" alt="pancarte">
+		<img src="img/big_47867890_0_600-114.jpg" alt="pancarte">
 		<figcaption>
 			<a href="mailto:contact@aloe44.com" >contact@aloe44.com</a> ou  06 82 21 91 24 ou 06 82 21 91 24
 	
@@ -33,7 +33,7 @@
 		{#each images[0] as {img, url, alt}}
 		<div class="thumbnail">
 		<a href={url} target="_blank">
-				<img src="img/home/{img}.JPG" width="300" {alt} >
+				<img src="img/{img}.jpg" width="300" {alt} >
 			</a>
 		</div>
 		{/each}
@@ -50,7 +50,7 @@
 		<div class="">
 			<p class="green">{text}</p>
 		<a href={url} target="_blank">
-				<img src="img/home/{img}.JPG" {alt} >
+				<img src="img/{img}.jpg" {alt} >
 			</a>
 		</div>
 		{/each}
