@@ -3,17 +3,16 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
 	import Head from "$lib/components/Head.svelte";
 	const images = [
 		[
-			{img: '47867005', url: "http://indd.adobe.com/view/4101c945-e727-40d5-b0c8-8bde9cab4dc5", text: ""},
-			{img: "47867035", url: "http://indd.adobe.com/view/ad1f9502-dbee-4495-afd8-094baf68a415", text: ""},
+			{img: '47867005', alt: "catalogue cosmétique", url: "http://indd.adobe.com/view/4101c945-e727-40d5-b0c8-8bde9cab4dc5", text: ""},
+			{img: "47867035", alt: "catalogue bijoux", url: "http://indd.adobe.com/view/ad1f9502-dbee-4495-afd8-094baf68a415", text: ""},
 		],
 		[
-			{img: 'big_47867690_0_800-274', text: "pour le cosmétique", url: "https://info.fredericm.com/cosmetiques?ref=vhj6kambk2qrbvgdnx3q8v5ub8"},
-			{img: "big_47867710_0_350-307", text: "pour le bien-être", url: "https://info.fredericm.com/feelgood?ref=vhj6kambk2qrbvgdnx3q8v5ub8"},
-			{img: "47867765", text: "pour les bijoux", url: "https://info.fredericm.com/silver?ref=vhj6kambk2qrbvgdnx3q8v5ub8"},
+			{ alt: "cosmétique", img: 'big_47867690_0_800-274', text: "pour le cosmétique", url: "https://info.fredericm.com/cosmetiques?ref=vhj6kambk2qrbvgdnx3q8v5ub8"},
+			{ alt: "bien-être", img: "big_47867710_0_350-307", text: "pour le bien-être", url: "https://info.fredericm.com/feelgood?ref=vhj6kambk2qrbvgdnx3q8v5ub8"},
+			{ alt: "bijoux", img: "47867765", text: "pour les bijoux", url: "https://info.fredericm.com/silver?ref=vhj6kambk2qrbvgdnx3q8v5ub8"},
 		],
 	]
 
@@ -21,7 +20,7 @@
 <Head title="Forme, bien-être et beauté" />
 <section>
 	<figure>
-		<img src="img/home/big_47867890_0_600-114.JPG" alt="">
+		<img src="img/home/big_47867890_0_600-114.JPG" alt="pancarte">
 		<figcaption>
 			<a href="mailto:contact@aloe44.com" >contact@aloe44.com</a> ou  06 82 21 91 24 ou 06 82 21 91 24
 	
@@ -31,10 +30,10 @@
 	
 <section>
 	<div class="grid">
-		{#each images[0] as {img, url}}
+		{#each images[0] as {img, url, alt}}
 		<div class="thumbnail">
 		<a href={url} target="_blank">
-				<img src="img/home/{img}.JPG" width="300" alt="image" >
+				<img src="img/home/{img}.JPG" width="300" {alt} >
 			</a>
 		</div>
 		{/each}
@@ -47,11 +46,11 @@
 
 	</p>
 	<div class="rows">
-		{#each images[1] as {text, img, url}}
+		{#each images[1] as {text, img, url, alt}}
 		<div class="">
 			<p class="green">{text}</p>
 		<a href={url} target="_blank">
-				<img src="img/home/{img}.JPG"  alt="image" >
+				<img src="img/home/{img}.JPG" {alt} >
 			</a>
 		</div>
 		{/each}

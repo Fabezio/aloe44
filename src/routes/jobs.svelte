@@ -11,7 +11,7 @@
   </p>
   <a href="https://info.fredericm.com/business-fm?ref=vhj6kambk2qrbvgdnx3q8v5ub8">
   
-    <img src="img/jobs/47867400.jpg" width="500" alt="">
+    <img src="img/jobs/47867400.jpg" width="500" alt="annonces">
   </a>
 
 </section>
