@@ -122,3 +122,9 @@ embed.videoEmbed {
 		/* justify-content: space-between; */
 		align-items: center;
 	}
+	p {
+		text-align: justify;
+	}
+	.mx-center {
+		margin: 0 auto;
+	}

@@ -1,7 +1,20 @@
 <script lang="ts">
 	import Nav from '$lib/components/Nav.svelte';
 	import '../app.css';
+	$: innerWidth = 0
+	$: innerHeight = 0
+	$: outerWidth = 0
+	$: outerHeight = 0
+	
+	$: if (innerHeight > 0) console.log("Dimensions internes:",innerWidth, innerHeight)
+	$: if (outerHeight > 0) console.log("Dimensions externes:",outerWidth, outerHeight)
 </script>
+<svelte:window 
+	bind:innerHeight 
+	bind:innerWidth
+	bind:outerHeight 
+	bind:outerWidth
+ />
 
 <Nav />
 <div id="top"></div>

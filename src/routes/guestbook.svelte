@@ -1,5 +1,7 @@
 <script>
   import Head from "$lib/components/Head.svelte";
+  import Fields from "$lib/components/Form/Fields.svelte";
+  import Form from "$lib/components/Form/Form.svelte";
   import InputField from "$lib/components/Form/InputField.svelte";
   import TextareaField from "$lib/components/Form/TextareaField.svelte";
   import Button from "$lib/components/Button.svelte";
@@ -11,6 +13,13 @@
   let email = ""
   let message = ""
   let data = []
+  function handleKey (e) {
+    // console.log("e1",e1.key)
+    // console.log("e2",e2.key)
+    if ((e.key=="Ctrl" || e.key=="Meta") && e.key == "Enter") {
+      submitForm()
+    }
+  }
   function submitForm () {
     const newUser = {
       civil: civil,
@@ -22,11 +31,18 @@
     }
     data = [...data, newUser]
     console.log(data)
+    civil = ""
+    firstname = ""
+    lastname = ""
+    phone = ""
+    email = ""
+    message = ""
     return data
   }
 </script>
 
 <Head title="Livre d'or" />
+<svelte:window on:keydown={handleKey} />
 
 <div>
   <p>
@@ -39,10 +55,9 @@
   </p>
 </div>
 <section>
-  <form action="" on:submit|preventDefault={submitForm}>
-    <fieldset>
-      <legend>Identité</legend>
-      <div class="inputfield">
+  <Form on:submit={submitForm} >
+      <Fields legend="Identité">
+         <div class="inputfield">
         <label for="civil">Etat civil</label>
         <select id="civil" bind:value={civil}>
           <option value="">--choisissez--</option>
@@ -52,27 +67,23 @@
 
         </select>
       </div>
-      <InputField bind:value={firstname} label="Prénom" name="firstname" />
-      <InputField bind:value={lastname} label="Nom" name="lastname" />
-      <InputField bind:value={phone} label="Téléphone" name="phone" entryType="tel" />
-      <InputField bind:value={email} label="Adresse courriel" name="email" entryType="email" />
+        <InputField bind:value={firstname} label="Prénom" name="firstname" />
+        <InputField bind:value={lastname} label="Nom" name="lastname" />
+        <InputField bind:value={phone} label="Téléphone" name="phone" entryType="tel" />
+        <InputField bind:value={email} label="Adresse courriel" name="email" entryType="email" />
+      </Fields>
       
-  </fieldset>
-  
-  <fieldset>
-    <legend>Commentaire</legend>
-    <TextareaField label="Message" name="message" bind:value={message} />
-    <!-- <EmojiPicker bind:value={message} /> -->
-    
-  </fieldset>
-  
-  <div class="flex">
-    <Button submit >valider</Button>
-    <Button reset >vider</Button>
-    
-  </div>
-  
-</form>
+      <!-- <Fields legend="Coordonnées géographiques" >
+        <InputField bind:value={way} label="Rue"  name="way" />
+        <InputField bind:value={zip} label="Code Postal" name="zip" />
+        <InputField bind:value={cityname} label="Ville"  name="cityname" />
+      </Fields> -->
+
+      <Fields legend="Message" >
+        <TextareaField label="Message" name="message" bind:value={message} />
+      </Fields>
+      
+    </Form>
 {#if data.length}
 <pre>
   {JSON.stringify(data, null, 2)}

@@ -80,7 +80,7 @@
 </p>
 </section>
 
-<section  class="center" >
+<section  class="mx-center" >
 <p>
 Maquillage, parfums, cosmétique, bio, france, bien être...<br>
 Déplacement à domicile sur Nantes et sa région (Pays de la Loire, Loire Atlantique, Vendée, Maine et Loire, Sarthe, Mayenne, Vertou, Saint Sébastien, La chapelle sur Erdre, Sucé sur Erdre, Orvault, Saint Herblain, Rezé...)

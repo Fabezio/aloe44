@@ -20,11 +20,34 @@
 <style>
 	nav {
 		padding: 12px 8px;
+		margin: 0 auto;
 		display: grid;
-		grid-template-columns: auto 1fr ; 
-		place-content: center stretch;
+		grid-gap: 1em;
+		/* grid-template-columns: auto 1fr ;  */
+		grid-template-areas: 
+			"brand"
+			"links";
+		;
+		grid-template-rows: 2em, 2em;
+		place-content: center center;
+		place-items: center center;
 		--background: rgba(255, 255, 255, 0.7);
 	}
+	nav a {
+		height: 100%;
+		align-items: center;
+		padding: 2px 1em;
+		color: var(--heading-color);
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		transition: color 0.2s linear;
+	}
+	.brand {
+		grid-area: brand;
+	}
+	
 	
 	.brand a {
 		display: flex;
@@ -41,12 +64,16 @@
 	.brand span {
 		vertical-align: middle;
 	}
+
 	
 	.links {
+		grid-area: links;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		width: 100%;
-		justify-content: flex-end;
+		/* width: 100%; */
+		justify-content: center;
+		flex-wrap: wrap;
 		flex: 0 0 auto;
 	}
 	.links a {
@@ -54,17 +81,7 @@
 		color: gray;
 	}
 	
-	nav a {
-		height: 100%;
-		align-items: center;
-		padding: 2px 1em;
-		color: var(--heading-color);
-		font-size: 0.9rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
+	
 	.active a {
 		color: black;
 		text-shadow: 0 0px 5px lime;		
@@ -73,5 +90,33 @@
 	a:hover {
 		color: var(--accent-color);
 	}
-</style>
+	
+	@media screen and (min-width: 768px) {
+		nav {
+			/* grid-template-columns: auto 1fr 1fr; */
+		}
+	}
+	@media screen and (min-width: 1024px) {
+		nav {
+			/* grid-template-columns: auto 1fr 1fr 1fr; */
+		}
+	}
+	@media screen and (min-width: 1200px) {
+		nav {
+			grid-template-columns: auto 1fr ;
+			grid-template-areas: "brand links";
+			/* justify-content: start; */
+		}
+		.links {
+			justify-self: end;
+			/* display: flex; */
+			flex-direction: row;
+			/* justify-content: flex-end;
+			flex: 1 0 100%; */
+
+		}
+		/* .links */
+	}
+
+	</style>
 

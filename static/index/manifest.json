@@ -1,0 +1,17 @@
+{
+  "name": "aloe44.vercel.app",
+  "short_name": "aloe44",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "size": "64*64"
+    }
+  ],
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "theme_color": "#ffffff",
+  "description": "Des produits bio et français ! Les buvables, les compléments, l'hygiène, la beauté, le maquillage, le soin de la peau, les coffrets, l'homme, la femme, les enfants. parfum..."
+}

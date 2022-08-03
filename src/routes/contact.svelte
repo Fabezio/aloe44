@@ -1,8 +1,9 @@
 <script>
   import Head from "$lib/components/Head.svelte";
+  import Fields from "$lib/components/Form/Fields.svelte";
+  import Form from "$lib/components/Form/Form.svelte";
   import InputField from "$lib/components/Form/InputField.svelte";
   import TextareaField from "$lib/components/Form/TextareaField.svelte";
-  import Button from "$lib/components/Button.svelte";
   let firstname = ""
   let lastname = ""
   let phone = ""
@@ -11,8 +12,12 @@
   let zip = ""
   let cityname = ""
   let message = ""
-  let user
   let data = []
+  function handleKey (e) {
+    if (e.key === "Enter") {
+      submitForm()
+    }
+  }
   function submitForm () {
     const newUser = {
       firstname: firstname,
@@ -26,10 +31,20 @@
     }
     data = [...data, newUser]
     console.log(data)
+    firstname = ""
+lastname = ""
+phone = ""
+email = ""
+way = ""
+zip = ""
+cityname = ""
+message = ""
+
     return data
   }
   </script>
 <Head title="Contactez-moi !" />
+<svelte:window on:keydown={handleKey} />
 <div>
   <p>
     Conformément à la loi, en tant que VDI, les tarifs sont absents du site afin de préserver les droits du consommateur.
@@ -48,40 +63,30 @@
     </p>
   </div>
   <section>
-    <form action="" on:submit|preventDefault={submitForm} >
-    <fieldset>
-      <legend>Identité</legend>
-      <InputField bind:value={firstname} label="Prénom" name="firstname" />
-      <InputField bind:value={lastname} label="Nom" name="lastname" />
-      <InputField bind:value={phone} label="Téléphone" name="phone" entryType="tel" />
-      <InputField bind:value={email} label="Adresse courriel" name="email" entryType="email" />
+    <Form on:submit={submitForm} >
+      <Fields legend="Identité">
+        <InputField bind:value={firstname} label="Prénom" name="firstname" />
+        <InputField bind:value={lastname} label="Nom" name="lastname" />
+        <InputField bind:value={phone} label="Téléphone" name="phone" entryType="tel" />
+        <InputField bind:value={email} label="Adresse courriel" name="email" entryType="email" />
+      </Fields>
       
-    </fieldset>
-    <fieldset>
-      <legend>Coordonnées géographiques</legend>
-      <InputField bind:value={way} label="Rue"  name="way" />
-      <InputField bind:value={zip} label="Code Postal" name="zip" />
-      <InputField bind:value={cityname} label="Ville"  name="cityname" />
+      <Fields legend="Coordonnées géographiques" >
+        <InputField bind:value={way} label="Rue"  name="way" />
+        <InputField bind:value={zip} label="Code Postal" name="zip" />
+        <InputField bind:value={cityname} label="Ville"  name="cityname" />
+      </Fields>
+
+      <Fields legend="Commentaire" >
+        <TextareaField label="Message" name="message" bind:value={message} />
+      </Fields>
       
-    </fieldset>
-    <fieldset>
-      <legend>Commentaire</legend>
-      <TextareaField label="Message" name="message" bind:value={message} />
-      
-      
-    </fieldset>
-    
-    <div class="flex">
-      <Button submit >valider</Button>
-      <Button reset >vider</Button>
-      
-    </div>
-    
-  </form>
-  {#if data.length}
-  <pre>
-    {JSON.stringify(data, null, 2)}
+    </Form>
+    <br />
+    {#if data.length}
+    <pre>
+      {JSON.stringify(data, null, 2)}
   </pre>
-  <!-- {message} -->
+
   {/if} 
 </section>
