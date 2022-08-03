@@ -102,6 +102,10 @@ Déplacement à domicile sur Nantes et sa région (Pays de la Loire, Loire Atlan
 	}
 	.thumbnail {
 		width: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 auto;
 	}
 	
 	.grid {

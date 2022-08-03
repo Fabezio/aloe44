@@ -45,7 +45,8 @@ message = ""
   </script>
 <Head title="Contactez-moi !" />
 <svelte:window on:keydown={handleKey} />
-<div>
+<section class="mx-center">
+
   <p>
     Conformément à la loi, en tant que VDI, les tarifs sont absents du site afin de préserver les droits du consommateur.
     <br>
@@ -61,7 +62,9 @@ message = ""
       <br>
       02.40.49.69.33 -->
     </p>
-  </div>
+</section>
+<!-- <div>
+  </div> -->
   <section>
     <Form on:submit={submitForm} >
       <Fields legend="Identité">
@@ -90,3 +93,13 @@ message = ""
 
   {/if} 
 </section>
+
+<style>
+  @media (min-width: 758px) {
+    .mx-center {
+      width: 758px;
+
+    }
+  }
+   
+</style>

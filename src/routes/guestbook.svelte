@@ -44,7 +44,7 @@
 <Head title="Livre d'or" />
 <svelte:window on:keydown={handleKey} />
 
-<div>
+<section class="mx-center">
   <p>
     <!-- Livre d'Or Aloe44.com
     <br> -->
@@ -53,7 +53,7 @@
     Connectez-vous à Google pour enregistrer votre progression. <a href="#" >En savoir plus</a>
     <br>
   </p>
-</div>
+</section>
 <section>
   <Form on:submit={submitForm} >
       <Fields legend="Identité">
@@ -90,3 +90,13 @@
 </pre>
 {/if}
 </section>
+
+<style>
+  @media (min-width: 758px) {
+    .mx-center {
+      width: 758px;
+
+    }
+  }
+   
+</style>

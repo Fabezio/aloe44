@@ -13,3 +13,14 @@
       
     </div>
 </form>
+
+<style>
+  form {
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    form {
+      width: 768px;
+    }
+  }
+</style>
