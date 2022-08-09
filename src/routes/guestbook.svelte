@@ -1,5 +1,4 @@
 <script>
-  import Head from "$lib/components/Head.svelte";
   import Fields from "$lib/components/Form/Fields.svelte";
   import Form from "$lib/components/Form/Form.svelte";
   import InputField from "$lib/components/Form/InputField.svelte";
@@ -48,7 +47,6 @@
   ]
 </script>
 
-<Head title="Livre d'or" />
 <svelte:window on:keydown={handleKey} />
 
 <section class="mx-center">

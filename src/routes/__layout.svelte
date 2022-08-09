@@ -1,13 +1,17 @@
 <script lang="ts">
-	import Nav from '$lib/components/Nav.svelte';
+	import Header from '$lib/components/Header/index.svelte';
+	import {page} from '$app/stores';
+	import {currentPage} from "$lib/store"
+	$currentPage = $page.url.pathname
+	// import Nav from '$lib/components/Nav.svelte';
 	import '../app.css';
 	$: innerWidth = 0
 	$: innerHeight = 0
 	$: outerWidth = 0
 	$: outerHeight = 0
 	
-	$: if (innerHeight > 0) console.log("Dimensions internes:",innerWidth, innerHeight)
-	$: if (outerHeight > 0) console.log("Dimensions externes:",outerWidth, outerHeight)
+	// $: if (innerHeight > 0) console.log("Dimensions internes:",innerWidth, innerHeight)
+	// $: if (outerHeight > 0) console.log("Dimensions externes:",outerWidth, outerHeight)
 </script>
 <svelte:window 
 	bind:innerHeight 
@@ -16,7 +20,7 @@
 	bind:outerWidth
  />
 
-<Nav />
+<Header />
 <div id="top"></div>
 <div class="container">
 

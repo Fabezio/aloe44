@@ -1,7 +1,3 @@
-<script>
-  import Head from "$lib/components/Head.svelte";
-</script>
-<Head title="Actualité et Promos" />
 <section class="mx-center">
   <p class="red">
     LES PROMO DE NOVEMBRE DECEMBRE<br/>

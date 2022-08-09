@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-	import Head from "$lib/components/Head.svelte";
 	const images = [
 		[
 			{img: '47867005', alt: "catalogue cosmétique", url: "http://indd.adobe.com/view/4101c945-e727-40d5-b0c8-8bde9cab4dc5", text: ""},
@@ -17,7 +16,7 @@
 	]
 
 </script>
-<Head title="Forme, bien-être et beauté" />
+
 <section>
 	<figure>
 		<img src="img/big_47867890_0_600-114.jpg" alt="pancarte">

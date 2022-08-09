@@ -1,7 +1,3 @@
-<script>
-  import Head from "$lib/components/Head.svelte";
-</script>
-<Head title="Nos offres d'emploi" />
 <section class="mx-center">
   <p class="blue">
     Grâce à une activité en plein expansion, soyez acteur de votre réussite !<br>

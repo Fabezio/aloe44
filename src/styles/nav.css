@@ -1,0 +1,43 @@
+nav a {
+		height: 100%;
+		align-items: center;
+		padding: 2px 1em;
+		color: var(--heading-color);
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		transition: color 0.2s linear;
+	}
+
+
+
+	
+	.brand {
+		grid-area: brand;
+	}
+		
+	.brand a {
+		display: flex;
+		font-weight: 600;
+		text-transform: uppercase;
+		
+	}
+	
+	.brand img {
+		height: 56px;
+		margin-right: 8px;
+	}
+	
+	.brand span {
+		vertical-align: middle;
+	}
+  
+	a:hover {
+		color: var(--accent-color);
+	}
+
+	.links a {
+		font-weight: 500;
+		color: gray;
+	}

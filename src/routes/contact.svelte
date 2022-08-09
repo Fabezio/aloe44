@@ -1,5 +1,4 @@
 <script>
-  import Head from "$lib/components/Head.svelte";
   import Fields from "$lib/components/Form/Fields.svelte";
   import Form from "$lib/components/Form/Form.svelte";
   import InputField from "$lib/components/Form/InputField.svelte";
@@ -32,18 +31,18 @@
     data = [...data, newUser]
     console.log(data)
     firstname = ""
-lastname = ""
-phone = ""
-email = ""
-way = ""
-zip = ""
-cityname = ""
-message = ""
+    lastname = ""
+    phone = ""
+    email = ""
+    way = ""
+    zip = ""
+    cityname = ""
+    message = ""
 
     return data
   }
-  </script>
-<Head title="Contactez-moi !" />
+</script>
+
 <svelte:window on:keydown={handleKey} />
 <section class="mx-center">
 
