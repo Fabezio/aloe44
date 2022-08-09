@@ -1,5 +1,7 @@
 <script lang="ts">
-	import Header from '$lib/components/Header/index.svelte';
+	// import Header from '$lib/components/Header/Header.svelte';
+	import Nav from "$lib/components/Header/Nav.svelte";
+  import Head from "$lib/components/Header/Head.svelte";
 	import {page} from '$app/stores';
 	import {currentPage} from "$lib/store"
 	$currentPage = $page.url.pathname
@@ -20,7 +22,10 @@
 	bind:outerWidth
  />
 
-<Header />
+<header>
+	<Nav />
+	<Head />
+</header>
 <div id="top"></div>
 <div class="container">
 
